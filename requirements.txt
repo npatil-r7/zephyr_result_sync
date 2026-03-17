@@ -1,0 +1,13 @@
+# ============================================================================
+# Zephyr Scale - Robot Framework Integration
+# Dependencies
+# ============================================================================
+
+# Robot Framework - Test Automation Framework
+robotframework>=6.0
+
+# Selenium Library - Web UI Testing
+robotframework-seleniumlibrary>=6.0
+
+# Requests - HTTP API calls to Zephyr Scale
+requests>=2.28.0
