@@ -1,8 +1,7 @@
 *** Settings ***
 Library    SeleniumLibrary
-Library    ../libraries/ZephyrSync.py
 Resource   ../config/config.robot
-Test Teardown    Sync Zephyr Result If Enabled
+Test Teardown    Close All Browsers
 
 *** Test Cases ***
 Login Valid User
@@ -22,20 +21,9 @@ Login Invalid Password
     Input Text    id:password    invalidpassword
     Click Button    id:login-button
     Wait Until Page Contains    Epic sadface
-    Fail    Login test failed as expected
+    Fail    This test intentionally fails to demonstrate FAIL status sync
 
 *** Keywords ***
-Sync Zephyr Result If Enabled
-    [Documentation]    Sync test result to Zephyr in teardown
-    Log    Test Status: ${TEST_STATUS}
-    Log    Test Tags: ${TEST_TAGS}
-    
-    # Convert TEST_STATUS to PASS/FAIL format expected by Zephyr
-    ${zephyr_status}=    Set Variable If    '${TEST_STATUS}' == 'PASS'    PASS    FAIL
-    
-    Run Keyword If    ${SYNC_TO_ZEPHYR}    Sync Result    ${TEST_TAGS}    ${zephyr_status}    ${PROJECT_KEY}    ${TEST_CYCLE}    ${FOLDER_ID}
-    Close All Browsers
-
 Open Browser With Custom Chrome Options
     [Documentation]    Open browser with Chrome options to disable password manager popup
     ${chrome_options}=    Evaluate    selenium.webdriver.ChromeOptions()
