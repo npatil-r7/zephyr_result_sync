@@ -11,7 +11,7 @@ setup(
     description="Robot Framework listener for Zephyr Scale Cloud integration",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/npatil-r7/zephyr-robotframework-listener",
+    url="https://github.com/npatil-r7/zephyr_result_sync",
     packages=find_packages(),
     python_requires=">=3.8",
     install_requires=[
