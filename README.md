@@ -27,8 +27,8 @@ export ZEPHYR_FOLDER_ID="YOUR_FOLDER_ID"
 |----------|----------|-------------|
 | `ZEPHYR_API_KEY` | ✅ Yes | Zephyr Scale API token |
 | `ZEPHYR_PROJECT_KEY` | ✅ Yes | Jira project key (e.g., `R7QE`) |
-| `ZEPHYR_BASE_URL` | ❌ No | API URL (defaults to EU region) |
-| `ZEPHYR_FOLDER_ID` | ❌ No | Folder ID for Test Cycles |
+| `ZEPHYR_BASE_URL` | ✅ Yes | API URL (defaults to EU region) |
+| `ZEPHYR_FOLDER_ID` | ✅ Yes | Folder ID for Test Cycles |
 
 ### 2. Tag Your Tests
 
