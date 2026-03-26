@@ -48,7 +48,7 @@ Login Invalid User
 ### 3. Run Tests
 
 ```bash
-robot --listener ZephyrListener tests/
+robot --listener zephyr_listener.ZephyrListener tests/login_poc.robot
 ```
 
 ---
