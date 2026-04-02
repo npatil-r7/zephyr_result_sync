@@ -53,6 +53,49 @@ robot --listener zephyr_listener.ZephyrListener tests/login_poc.robot
 
 ---
 
+Here is the content converted into a clean, professional `README.md` format.
+
+```markdown
+# Zephyr Key Extraction Logic
+
+This document outlines how the system extracts Zephyr Test Case keys from Robot Framework tags.
+
+## Handling Multiple Zephyr Keys
+If multiple Zephyr keys are accidentally added to a single test case, the system will prioritize the **first match** found in the tags list.
+
+**Example:**
+```robotframework
+*** Test Cases ***
+Some Test
+    [Tags]    UI-T449    UI-T450    Smoke    Log
+    # Result: Only UI-T449 will be used (first match)
+```
+
+---
+
+## Project Key Support
+The extraction logic is flexible and supports various project key prefixes.
+
+| Project Key | Tag Example | Extracted Key |
+| :--- | :--- | :--- |
+| **UI** | `[Tags] Smoke UI-T449 regression` | `UI-T449` |
+| **R7QE** | `[Tags] Smoke R7QE-T4080 critical` | `R7QE-T4080` |
+| **TEST** | `[Tags] sanity TEST-T123 api` | `TEST-T123` |
+
+---
+
+## Feature Summary
+
+| Feature | Supported? |
+| :--- | :--- |
+| Multiple tags per test | ✅ Yes |
+| Tag in any position | ✅ Yes |
+| Different project keys | ✅ Yes |
+| Case-insensitivity (e.g., `ui-t449` vs `UI-T449`) | ✅ Yes |
+| First match wins (when multiple keys exist) | ✅ Yes |
+
+---
+
 ## 🔧 Optional: Auto-Enable Listener
 
 Create `robot.toml` in your project root:
